@@ -8,7 +8,8 @@ import hvplot.pandas
 
 # forecasting
 from fbprophet import Prophet
-from fbprophet.diagnostics import cross_validation,performance_metrics
+from fbprophet.diagnostics import cross_validation
+from fbprophet.diagnostics import performance_metrics
 
 ## anomaly detection
 from utils import pcp
@@ -44,10 +45,17 @@ class ProcessTimeSeriesData:
         except FileNotFoundError:
             raise "FileNotFoundError"
 
-    def train_test(self,start_time=None,time_col=None,
-                   log_data = False, scale_data=-1, difference=False,
-                   train_period='21 days', forecast_period='7 days',
-                   frequency='1 H',how=['sum','mean'], plot=True):
+    def train_test(self,
+                start_time=None,
+                time_col=None,
+                log_data = False, 
+                scale_data=-1, 
+                difference=False,
+                train_period='21 days', 
+                forecast_period='7 days',
+                frequency='1 H', 
+                how=['sum','mean'], 
+                plot=True,):
         ''' df: dataframe of data series of interest for forecasting
             output: train dataframe/Series, and test dataframe/Series
 
@@ -60,8 +68,8 @@ class ProcessTimeSeriesData:
             frequency: 
             how: sum,mean,std, etc
         '''
-        self.log_data = log_data
-        self.difference = difference
+        self.log_data= log_data
+        self.difference= difference
         self.scale_data = scale_data
         self.start_time = start_time
         self.frequency = frequency
@@ -187,7 +195,10 @@ class Forecasting:
                self.forecast.hvplot.area('ds','yhat_lower','yhat_upper',color='blue',alpha=.2)
 
     
-    def performance(self,horizon,initial,period):
+    def performance(self,
+                    horizon,
+                    initial,
+                    period,):
 
         self.horizon = horizon
         self.initial = initial
