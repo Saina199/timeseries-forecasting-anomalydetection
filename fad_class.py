@@ -14,7 +14,7 @@ from fbprophet.diagnostics import cross_validation,performance_metrics
 from utils import pcp
 
 
-class ProcessStreamData:
+class ProcessTimeSeriesData:
     ''' 
         this class load the data from disk or database and 
         prepare train and test for forecasting.
