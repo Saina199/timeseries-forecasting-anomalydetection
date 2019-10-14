@@ -194,19 +194,19 @@ class Forecasting:
                self.forecast.hvplot('ds','yhat',color='brown',kind='line',line_width=2) *\
                self.forecast.hvplot.area('ds','yhat_lower','yhat_upper',color='blue',alpha=.2)
 
-    
-    def performance(self,
-                    horizon,
-                    initial,
-                    period,):
+    ##TODO:  
+    # def performance(self,
+    #                 horizon,
+    #                 initial,
+    #                 period,):
 
-        self.horizon = horizon
-        self.initial = initial
+    #     self.horizon = horizon
+    #     self.initial = initial
  
-        self.df_cv = cross_validation(self.model,horizon=self.horizon,
-                                        initial=self.initial,period=period)       
-        return performance_metrics(self.df_cv,
-            metrics=['mse', 'rmse', 'mae', 'mape','coverage'],rolling_window=1)
+    #     self.df_cv = cross_validation(self.model,horizon=self.horizon,
+    #                                     initial=self.initial,period=period)       
+    #     return performance_metrics(self.df_cv,
+    #         metrics=['mse', 'rmse', 'mae', 'mape','coverage'],rolling_window=1)
 
     def point_metric(self):
         if self.log:
