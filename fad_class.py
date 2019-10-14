@@ -231,7 +231,12 @@ class Forecasting:
             self.mse = np.mean((self.test['y']-self.test['yhat'])**2)
             self.mae = np.mean(abs(self.test['y']-self.test['yhat']))
 
-        return self.mse,np.sqrt(self.mse),self.mae,self.mape
+        print('mse: '+str.format('{0:.6}',self.mse))
+        print('rmse: '+str.format('{0:.6}',np.sqrt(self.mse)))
+        print('mae: '+str.format('{0:.6}',self.mae))
+        print('mape: '+str.format('{0:.6}',self.mape))
+
+        return 
 
 
 
